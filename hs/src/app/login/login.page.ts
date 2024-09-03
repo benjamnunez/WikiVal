@@ -15,7 +15,10 @@ export class LoginPage implements OnInit {
   }
   //variable para obtener el nombre del campo vacío
   field:string="";
-  constructor(public router: Router,public toastController:ToastController) { }
+  constructor(
+    public router: Router,
+    public toastController:ToastController,
+  ) { }
 
   ngOnInit() {
   }

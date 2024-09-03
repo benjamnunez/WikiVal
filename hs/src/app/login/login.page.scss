@@ -1,4 +1,45 @@
-.input_login{margin-bottom: 10px; border-bottom-right-radius: 20px; border-top-left-radius: 15px;
+ion-content{
+    --background: #674a38;
+    --padding-top: var(--ion-safe-area-top,10);
+    --padding-bottom: var(--ion-safe-area-bottom,10);
+    text-align: center;
+}
+
+ion-toolbar{
+    --background: #674a38;
+}
+
+ion-button{
+    margin-bottom: 20px;
+}
+
+
+.tittle{
+    font-family: LinSamLin;
+    text-align: center;
+    justify-content: center;
+    font-size: x-large;
+    color: #d4ad86;
+}
+
+.input_login{
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+.home-card{
+    background-color: transparent; 
+    width: 100%;
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    bottom: 0;
+}
+
+.start-img{
+    margin-top: 10%;
+    border-radius: 25px;
+    width: 60%; 
 }
 
 @font-face {
