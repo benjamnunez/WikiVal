@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="tittle">
+      WikiVal
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img class="start-img" alt="Login" src="../../../assets/imgs/valorant-logo.png" />
+  <ion-card class="home-card">
+    <ion-card-content>
+      <ion-card-title id="titulo">Inicio Sesión:</ion-card-title>
+    <ion-item class="input_login">
+      <ion-input maxlength="20" label="Usuario" labelPlacement="floating" [(ngModel)]="login.username" ></ion-input>
+    </ion-item>
+      
+    <ion-item class="input_login">
+      <ion-input maxlength="15" label="Password" labelPlacement="floating" type="password" [(ngModel)]="login.password" ></ion-input>
+    </ion-item>
+    <ion-button class="box-shadow" expand="block" (click)="ingresar()">Iniciar Sesión</ion-button>
+    <ion-button class="box-shadow" expand="block" [routerLink]="'/register'" >Registrarse</ion-button>
+    <a (click)="recoveryAcc()">¿Olvidaste la contraseña?</a>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
