@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Armas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-template #noGuns>
+  <p>No se encontraron Armas.</p>
+</ng-template>
+
+<ion-content>
+  <ion-button  *ngFor="let gun of guns" class="gun-button" expand="block" fill="clear">
+    <ion-card class="gun-card">
+      <img src="{{ gun.displayIcon }}" alt="{{ gun.displayName }}" class="gun-img" />
+      <ion-card-title>{{ gun.displayName }}</ion-card-title>
+    </ion-card>
+  </ion-button>
+</ion-content>
