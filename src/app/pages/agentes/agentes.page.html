@@ -3,6 +3,7 @@
     <ion-title>Agentes</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ng-template #noAgents>
   <p>No se encontraron agentes.</p>
 </ng-template>
@@ -10,14 +11,27 @@
 <ion-content class="ion-padding">
   <ion-list *ngIf="agents.length > 0; else noAgents">
     <ion-item *ngFor="let agent of agents">
-      <ion-card *ngIf="agent.isPlayableCharacter ==true">
-        <ion-card-title>
-          {{ agent.displayName }}
-        </ion-card-title>
-        <img src="{{ agent.fullPortrait }}" alt="">
-        <ion-card-content>
-          {{ agent.description }}
-        </ion-card-content>
+      <ion-card *ngIf="agent.isPlayableCharacter == true" class="agent-card">
+          <div class="img-container">
+            <div class="background" 
+                [ngStyle]="{ 
+                  'background-image': 'url(' + agent.background + ')', 
+                  'background-size': 'cover', 
+                  'opacity': '0.2' 
+                }">
+            </div>
+            <img src="{{ agent.fullPortrait }}" alt="{{ agent.displayName }}" class="agent-img" />
+          </div>
+        
+
+        <div class="text-content">
+          <ion-card-title>
+            {{ agent.displayName }}
+          </ion-card-title>
+          <ion-card-content>
+            {{ agent.description }}
+          </ion-card-content>
+        </div>
       </ion-card>
     </ion-item>
   </ion-list>

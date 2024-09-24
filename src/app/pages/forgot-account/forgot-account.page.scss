@@ -1,0 +1,23 @@
+ion-content{
+    --background: #1F2326;
+    --padding-top: var(--ion-safe-area-top,10);
+    --padding-bottom: var(--ion-safe-area-bottom,10);
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+}
+.atras{
+    margin-left: 1em;
+}
+.texto{
+    color: white;
+    text-align: justify;
+    margin-left: 1em;
+}
+
+.titulo{
+    color: #FF9800;
+}

@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
+<ion-content [fullscreen]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>forgot-account</ion-title>
+    <div class="header">
+      <ion-icon class="atras" name="arrow-back-outline" [routerLink]="''"></ion-icon>
+      <ion-title size="large" style="text-align: center; padding: 10px; color: #FF4655">Recuperar Cuenta</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">forgot-account</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <div>
+    <p class="texto">¿Olvidaste tu contraseña?</p>
+    <p class="texto">Ingresa el correo de la cuenta que deseas recuperar</p>
+  </div>
+  <ion-title class="titulo">Ingrese su correo:</ion-title>
+    <ion-card>
+      <ion-input label="Correo" labelPlacement="floating"></ion-input>
+    </ion-card>
 </ion-content>

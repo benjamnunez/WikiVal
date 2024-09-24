@@ -1,0 +1,36 @@
+ion-card, ion-content, ion-item, ion-list{
+    --background: #1C1C1C;
+    text-align: center;
+    
+}
+
+ion-content{
+}
+
+
+
+ion-card-title{
+    color: #FFA500;
+}
+
+
+.gun-card img{height: 150px;
+    object-fit: contain;
+}
+
+.gun-card{
+    width: 100%;
+}
+
+.gun-button{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    --background: #1C1C1C;
+    margin-top: 50px;
+    
+    
+}

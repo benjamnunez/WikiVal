@@ -5,9 +5,17 @@ ion-content{
     text-align: center;
 }
 
-
 #titulo{
     color: #FF9800;
     text-align: center;
     font-weight: bold;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+}
+.atras{
+    margin-left: 1em;
 }

@@ -13,3 +13,12 @@ ion-icon {
     mask-image: url(../../../assets/imgs/pistola.png);
     }
     }
+
+ion-tab-bar{
+    --background:   #1C1C1C;
+    --border:solid rgb(43, 43, 43);
+}
+ion-tab-button{
+    --color: rgb(134, 132, 132);
+    --color-selected: rgb(252, 58, 58);
+}

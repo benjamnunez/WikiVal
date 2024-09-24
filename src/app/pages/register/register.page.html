@@ -1,22 +1,34 @@
 <ion-content [fullscreen]="true">
-  <ion-title size="large" style="text-align: center; padding: 10px; color: #FF4655">Crear una Cuenta</ion-title>
-
-  <ion-card>
-    <ion-card-title id="titulo">Ingrese los datos</ion-card-title>
-    <ion-list>
-      <ion-item>
-        <ion-input label="Correo" labelPlacement="floating"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Usuario" labelPlacement="floating"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" label="Contraseña" labelPlacement="floating"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" label="Contraseña" labelPlacement="floating"></ion-input>
-      </ion-item>
-    </ion-list>
-  </ion-card>
-  <ion-button style="text-align: center; bottom: 0;">Crear Cuenta</ion-button>
+  <ion-header>
+    <ion-toolbar>
+      <div class="header">
+        <ion-icon class="atras" name="arrow-back-outline" [routerLink]="''"></ion-icon>
+        <ion-title size="large" style="text-align: center; padding: 10px; color: #FF4655">Crear una Cuenta</ion-title>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="formulario" (ngSubmit)="enviarForm()">
+    <ion-card>
+      <ion-card-title id="titulo">Ingrese los datos</ion-card-title>
+      <ion-list>
+        <ion-item>
+          <ion-input label="Correo" labelPlacement="floating"
+          name="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Usuario" labelPlacement="floating"
+          name="username" formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" label="Contraseña" labelPlacement="floating"
+          name="contrasena" formControlName="contrasena"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" label="Contraseña" labelPlacement="floating"
+          name="contrasena2" formControlName="contrasena2"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-button style="text-align: center; bottom: 0;" type="submit">Crear Cuenta</ion-button>
+  </form>
 </ion-content>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -39,6 +40,7 @@ const routes: Routes = [
     path: 'forgot-account',
     loadChildren: () => import('./pages/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
   },
+
 ];
 
 @NgModule({
