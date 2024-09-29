@@ -12,7 +12,7 @@ export class ValorantapiService {
   public lenguaje: string='language=es-MX';
   public apiAgentes: string='/v1/agents?';
   public apiArmas: string='/v1/weapons?'
-  private agentApiUrl = 'https://valorant-api.com/v1/agents';
+  private apiSkins: string='https://valorant-api.com/v1/weapons/skins'
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +25,10 @@ export class ValorantapiService {
     console.log('Requesting: ', this.apiUrl+this.apiArmas+this.lenguaje) // Verificar la URL solicitada
     return this.http.get(this.apiUrl+this.apiArmas+this.lenguaje)
   }
- 
+
+  mostrarSkins(): Observable<any>{
+    console.log('Requesting: ', this.apiSkins) // Verificar la URL solicitada
+    return this.http.get(this.apiSkins)
+  }
 
 }

@@ -20,6 +20,7 @@ ion-card-title{
 
 .gun-card{
     width: 100%;
+    font-family: montserrat-bold;
 }
 
 .gun-button{
@@ -28,9 +29,12 @@ ion-card-title{
     display: block;
     text-align: center;
     width: 100%;
-    height: 200px;
+    
     --background: #1C1C1C;
     margin-top: 50px;
     
     
+}
+ion-card-title{
+    margin-bottom: 10px;
 }

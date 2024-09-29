@@ -36,3 +36,25 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+
+
+
+//FUENTES IMPORTADAS
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('../src/assets/fonts/Montserrat-Bold.ttf') format('truetype')
+    }
+@font-face {
+    font-family: 'poppins-semibold';
+    src: url('../src/assets/fonts/Poppins-SemiBold.ttf') format('truetype')
+    }
+@font-face {
+    font-family: 'poppins-semiboldItalic';
+    src: url('../src/assets/fonts/Poppins-SemiBoldItalic.ttf') format('truetype')
+    }
+@font-face {
+    font-family: 'opensans-regular';
+    src: url('../src/assets/fonts/OpenSans-Regular.ttf') format('truetype')
+    }
+
