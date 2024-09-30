@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>MINIJUEGO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [scrollY]="false" class="ion-padding">
+
+    
+    <ion-card class="personaje" *ngIf="pjRandom" >
+      <ion-card-title>{{ msg }}</ion-card-title>
+      <ion-card-content>
+        <img src="{{ pjRandom.imgUrl }}" class="pjRandom-img" />
+        <ion-input class="input" [disabled]="isButtonDisabled" label="Ingrese su Personaje" label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="nombrepj" ></ion-input>
+        <ion-button class="button" [disabled]="isButtonDisabled" expand="block" (click)="enviarDatosJuego()">verificar</ion-button>
+        <ion-card-title>Intentos Restantes = {{ intentos }}</ion-card-title>
+      </ion-card-content>
+
+
+  
+      <ion-button [routerLink]="'/tabs/home'">volver al home</ion-button>
+      
+    </ion-card>
+
+
+  
+
+</ion-content>

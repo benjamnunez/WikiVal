@@ -1,33 +1,25 @@
 
-ion-card, ion-item{
+ion-card, ion-content, ion-item{
     --background: #1C1C1C;
     text-align: center;
-    
 }
 ion-card-title{
     color: #FFA500;
     font-family: poppins-semiboldItalic;
     
 }
-ion-content {
-    --background: url('../../../assets/imgs/Cuadrados2.jpg') no-repeat center center / cover;
-    --ion-background-color: transparent; /* Esto asegura que el color de fondo no cubra la imagen */
-  }
 
 ion-header{
     text-align: center;
-}
-ion-card{
-    background-color: transparent;
-}
-ion-item{
-    --background: transparent;
 }
 
 ion-card-content{
     color: #CCCCCC;
     font-family: opensans-regular;
+    
 }
+
+
 
 .img-container {
     background-size: cover;
@@ -37,10 +29,9 @@ ion-card-content{
     display: flex;
     width: 100%;
     position: relative;
-
 }
 
-.agent-img {
+.map-img {
     border-radius: 10px;
 }
 
@@ -60,9 +51,14 @@ ion-card-content{
     margin-top: -45px;
 }
 
-.agent-img {
+.map-img {
     position: relative;
     z-index: 2;
     width: 100%;
     height: auto;
+}
+
+.map-card{
+    margin-bottom: 30px;
+    margin-top: 20px;
 }

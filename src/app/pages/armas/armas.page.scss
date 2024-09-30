@@ -1,11 +1,16 @@
-ion-card, ion-content, ion-item, ion-list{
+ion-card, ion-item, ion-list{
     --background: #1C1C1C;
     text-align: center;
     
 }
-
-ion-content{
+ion-header{
+    text-align: center;
 }
+
+ion-content {
+    --background: url('../../../assets/imgs/Cuadrados2.jpg') no-repeat center center / cover;
+    --ion-background-color: transparent; /* Esto asegura que el color de fondo no cubra la imagen */
+  }
 
 
 
@@ -16,11 +21,14 @@ ion-card-title{
 
 .gun-card img{height: 150px;
     object-fit: contain;
+    margin-bottom: 20px;
+
 }
 
 .gun-card{
     width: 100%;
     font-family: montserrat-bold;
+    background-color: transparent;
 }
 
 .gun-button{
@@ -37,4 +45,5 @@ ion-card-title{
 }
 ion-card-title{
     margin-bottom: 10px;
+    
 }

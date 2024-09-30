@@ -11,14 +11,17 @@ import { WeaponSkinsModalComponent } from '../weapon-skins-modal/weapon-skins-mo
 })
 export class ArmasPage implements OnInit {
 guns: any[]=[];
+skins: number[]=[1,2];
+skinAleatoria:string='';
 
   constructor(
     private valorantService: ValorantapiService,
     private modalController: ModalController
-  ) { }
+  ) {
+    }
 
   ngOnInit() {
-    this.valorantService.mostrarArmas().subscribe((data: any) => {
+    this.valorantService.showWeapons().subscribe((data: any) => {
       this.guns = data.data;
       console.log(this.guns); // Verifica que los datos sean correctos
     });
@@ -36,4 +39,9 @@ guns: any[]=[];
     return await modal.present();
   
 }
+
+   indiceAleatorio = Math.floor(Math.random() * this.skins.length);
+
+
+
 }

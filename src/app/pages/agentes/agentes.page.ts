@@ -17,7 +17,7 @@ agents: any[]=[];
     this.mostrarAgents();
   }
   mostrarAgents(){
-    this.valorantService.mostrarAgentes().subscribe((data) =>{
+    this.valorantService.showAgents().subscribe((data) =>{
       this.agents=data.data;
       console.log(this.agents)
     } , 

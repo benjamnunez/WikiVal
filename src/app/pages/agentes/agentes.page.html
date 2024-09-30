@@ -17,7 +17,7 @@
                 [ngStyle]="{ 
                   'background-image': 'url(' + agent.background + ')', 
                   'background-size': 'cover', 
-                  'opacity': '0.2' 
+                  'opacity': '0.8' 
                 }">
             </div>
             <img src="{{ agent.fullPortrait }}" alt="{{ agent.displayName }}" class="agent-img" />
@@ -31,9 +31,11 @@
           <ion-card-content>
             {{ agent.description }}
           </ion-card-content>
-          <ion-button>mas info</ion-button>
+          <ion-button expand="block">mas info</ion-button>
         </div>
       </ion-card>
     </ion-item>
   </ion-list>
+  
+  <ion-input></ion-input>
 </ion-content>

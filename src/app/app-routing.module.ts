@@ -32,13 +32,18 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
-  {
-    path: 'sprays',
-    loadChildren: () => import('./pages/sprays/sprays.module').then( m => m.SpraysPageModule)
-  },
+ 
   {
     path: 'forgot-account',
     loadChildren: () => import('./pages/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
+  },
+  {
+    path: 'mapas',
+    loadChildren: () => import('./pages/mapas/mapas.module').then( m => m.MapasPageModule)
+  },
+  {
+    path: 'game',
+    loadChildren: () => import('./pages/game/game.module').then( m => m.GamePageModule)
   },
 
 ];

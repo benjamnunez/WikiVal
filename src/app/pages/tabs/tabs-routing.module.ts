@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () =>import('../home/home.module').then(m=>m.HomePageModule)
       },
       {
-        path:'sprays',
-        loadChildren: () =>import('../sprays/sprays.module').then(m=>m.SpraysPageModule)
+        path:'mapas',
+        loadChildren: () =>import('../mapas/mapas.module').then(m=>m.MapasPageModule)
       },
       {
         path:'',
