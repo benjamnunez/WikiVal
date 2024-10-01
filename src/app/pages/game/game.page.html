@@ -13,9 +13,10 @@
       <ion-card-title>{{ msg }}</ion-card-title>
       <ion-card-content>
         <img src="{{ pjRandom.imgUrl }}" class="pjRandom-img" />
-        <ion-input class="input" [disabled]="isButtonDisabled" label="Ingrese su Personaje" label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="nombrepj" ></ion-input>
+        <ion-input [clearOnEdit]="true" class="input" [disabled]="isButtonDisabled" label="Ingrese su Personaje" label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="nombrepj" ></ion-input>
         <ion-button class="button" [disabled]="isButtonDisabled" expand="block" (click)="enviarDatosJuego()">verificar</ion-button>
         <ion-card-title>Intentos Restantes = {{ intentos }}</ion-card-title>
+        <ion-card-title>RACHA = {{ racha }}</ion-card-title>
       </ion-card-content>
 
 
