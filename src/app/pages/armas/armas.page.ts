@@ -9,10 +9,10 @@ import { WeaponSkinsModalComponent } from '../weapon-skins-modal/weapon-skins-mo
   templateUrl: './armas.page.html',
   styleUrls: ['./armas.page.scss'],
 })
-export class ArmasPage implements OnInit {
+export class ArmasPage {
 guns: any[]=[];
 skins: number[]=[1,2];
-skinAleatoria:string='';
+isLoading = true;
 
   constructor(
     private valorantService: ValorantapiService,
@@ -20,11 +20,19 @@ skinAleatoria:string='';
   ) {
     }
 
-  ngOnInit() {
-    this.valorantService.showWeapons().subscribe((data: any) => {
-      this.guns = data.data;
-      console.log(this.guns); // Verifica que los datos sean correctos
-    });
+    ionViewWillEnter() {
+      this.isLoading= true
+      
+        this.valorantService.showWeapons().subscribe((data: any) => {
+          this.guns = data.data;
+          console.log(this.guns); // Verifica que los datos sean correctos
+          this.isLoading=false;
+        },
+        (error) => {
+          console.error('Error al obtener armas:', error);
+          this.isLoading = false;  // Detiene la animación de carga en caso de error
+        }
+      );
   }
 
   
@@ -40,7 +48,6 @@ skinAleatoria:string='';
   
 }
 
-   indiceAleatorio = Math.floor(Math.random() * this.skins.length);
 
 
 

@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ArmasPageRoutingModule } from './armas-routing.module';
-
 import { ArmasPage } from './armas.page';
+
 
 @NgModule({
   imports: [
@@ -16,5 +16,6 @@ import { ArmasPage } from './armas.page';
     ArmasPageRoutingModule
   ],
   declarations: [ArmasPage]
+
 })
 export class ArmasPageModule {}

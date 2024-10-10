@@ -4,11 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
+<div *ngIf="isLoading" class="loading-overlay">
+  <img src="../../../assets/imgs/loadinggif.gif" alt="">
+</div>
+
 <ng-template #noMaps>
   <p>No se encontraron mapas.</p>
 </ng-template>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" *ngIf="!isLoading">
   <ion-list *ngIf="maps.length > 0; else noMaps">
     <ion-item *ngFor="let map of maps" >
       <ion-card  class="map-card" *ngIf="map.uuid != 'ee613ee9-28b7-4beb-9666-08db13bb2244'">
@@ -23,7 +27,7 @@
             {{ map.displayName }}
           </ion-card-title>
 
-          <ion-button expand="block">mas info</ion-button>
+          <ion-button expand="block" class="button">mas info</ion-button>
         </div>
       </ion-card>
     </ion-item>
