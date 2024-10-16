@@ -9,15 +9,23 @@ ion-content{
     grid-template-columns: 10% 90%;
     align-items: center;
 }
+
 .atras{
-    margin-left: 1em;
+    margin-left: 40%;
 }
+
 .texto{
     color: white;
     text-align: justify;
-    margin-left: 1em;
+    margin-left: 3%;
 }
 
 .titulo{
     color: #FF9800;
+}
+
+.boton{
+    display: block;
+    text-align: center;
+    bottom: 0;
 }
