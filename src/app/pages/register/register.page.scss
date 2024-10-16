@@ -5,6 +5,19 @@ ion-content{
     text-align: center;
 }
 
+ion-toolbar{
+    --background: #FF4655;
+    color: #1F2326;
+}
+
+.toolbar-tittle{
+    text-align: center; 
+    padding: 10px;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+}
+
 #titulo{
     color: #FF9800;
     text-align: center;
@@ -17,5 +30,5 @@ ion-content{
     align-items: center;
 }
 .atras{
-    margin-left: 1em;
+    margin-left: 40%;
 }
