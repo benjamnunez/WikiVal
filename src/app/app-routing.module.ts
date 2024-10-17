@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'agentes',
-    loadChildren: () => import('./pages/agentes/agentes.module').then( m => m.AgentesPageModule)
+    loadChildren: () => import('./pages/agentes/agentes.module').then( m => m.AgentesPageModule),
   },
   {
     path: 'armas',
