@@ -1,5 +1,13 @@
-import { CanActivateFn } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
+import { BdlocalService } from '../services/bdlocal.service';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  return false;
+export class authGuard implements CanActivate{
+  constructor(
+    public bdlocalservice : BdlocalService,
+    public router : Router
+  ){}
+  
+  canActivate(){
+    return this.bdlocalservice.isAuthenticated();
+  }
 };

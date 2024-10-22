@@ -34,6 +34,7 @@ export class BdlocalService {
   async isAuthenticated(){
     const token = await this._storage?.get('usuario')
     this.isLoggedIn = !!token;
+    console.log(this.isLoggedIn)
     return this.isLoggedIn;
   }
 }

@@ -12,14 +12,17 @@ const routes: Routes = [
   {
     path: 'agentes',
     loadChildren: () => import('./pages/agentes/agentes.module').then( m => m.AgentesPageModule),
+    canActivate:[authGuard]
   },
   {
     path: 'armas',
-    loadChildren: () => import('./pages/armas/armas.module').then( m => m.ArmasPageModule)
+    loadChildren: () => import('./pages/armas/armas.module').then( m => m.ArmasPageModule),
+    canActivate:[authGuard]
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate:[authGuard]
   },
   {
     path: 'register',
@@ -31,11 +34,13 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+    canActivate:[authGuard]
   },
   {
     path: 'sprays',
-    loadChildren: () => import('./pages/sprays/sprays.module').then( m => m.SpraysPageModule)
+    loadChildren: () => import('./pages/sprays/sprays.module').then( m => m.SpraysPageModule),
+    canActivate:[authGuard]
   },
   {
     path: 'forgot-account',
