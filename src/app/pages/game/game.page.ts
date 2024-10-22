@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BdlocalService } from "../../services/bdlocal.service";
+import { transition } from '@angular/animations';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.page.html',
   styleUrls: ['./game.page.scss'],
 })
-export class GamePage implements OnInit {
+export class GamePage  {
 
   personajes = [
     { name: 'kayo', imgUrl: '../../../assets/gameImg/kayo.png' },
@@ -25,7 +26,7 @@ export class GamePage implements OnInit {
     { name: 'vyper', imgUrl: '../../../assets/gameImg/vyper.png' },
     { name: 'vyse', imgUrl: '../../../assets/gameImg/vyse.png' },
   ];
-
+  isLoading = false;
   pjRandom: any = { name: '', imgUrl: '' };
   nombrepj: any = '';
   msg: string = '';
@@ -53,10 +54,17 @@ export class GamePage implements OnInit {
   async enviarDatosJuego() {
     if (this.pjRandom.name == this.nombrepj) {
       this.msg = 'CORRECTO';
-      this.generarPersonajeRandom();
       this.intentos = 5;
       this.racha++;
+      this.generarPersonajeRandom();
       await this.guardarRacha();  // Guardar la racha cuando se acierte
+      
+        this.isLoading = true;
+        setTimeout(() => {
+          this.isLoading=false;
+        }, 2000);
+      
+    
     } else {
       this.msg = 'ERROR';
       this.intentos--;

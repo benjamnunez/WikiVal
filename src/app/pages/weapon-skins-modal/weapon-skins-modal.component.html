@@ -7,7 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<div *ngIf="isLoading" class="loading-overlay">
+  <img src="../../../assets/imgs/loadinggif.gif" alt="">
+</div>
+
+
+<ion-content *ngIf="!isLoading">
   <div class="fondo">
   <ion-card class="skin-card" *ngFor="let skin of skins" >
     <ion-card-title *ngIf="skin.displayIcon != null">{{ skin.displayName }}</ion-card-title>

@@ -10,6 +10,7 @@ export class ValorantapiService {
 
   private apiUrl: string='https://valorant-api.com';
   public lenguaje: string='language=es-MX';
+  public lenguajeEn: string='language=en-US';
   public apiAgentes: string='/v1/agents?';
   public apiArmas: string='/v1/weapons?'
   public apiMapas: string='/v1/maps?'
@@ -27,7 +28,7 @@ export class ValorantapiService {
   }
 
   showMaps(): Observable<any>{
-    console.log('Requesting: ', this.apiUrl+this.apiMapas+this.lenguaje) // Verificar la URL solicitada
-    return this.http.get(this.apiUrl+this.apiMapas+this.lenguaje)
+    console.log('Requesting: ', this.apiUrl+this.apiMapas+this.lenguajeEn) // Verificar la URL solicitada
+    return this.http.get(this.apiUrl+this.apiMapas+this.lenguajeEn)
   }
 }

@@ -1,3 +1,45 @@
+//GIF
+.loading-overlay {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1C1C;
+    z-index: 9999;
+    
+    flex-direction: column;
+    color: #FFA500;
+    }
+
+    .fade-out {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+    }
+
+    .fade-in {
+        opacity: 1;
+    }
+
+
+    .loading-overlay h1 {
+        margin-bottom: 100px; /* Ajusta el margen según sea necesario */
+        font-family: montserrat-bold;
+    }
+
+    .loading-overlay img {
+    width: 80%;
+    height: 40%;
+    object-fit: cover;
+    border-radius: 150px;
+    margin-left: -50px;
+    } 
+//FIN GIF
+
 ion-content, ion-header{text-align: center;}
 ion-content {
     --background: url('../../../assets/imgs/Cuadrados2.jpg') no-repeat center center / cover;
@@ -25,9 +67,6 @@ ion-card-title{
     margin-top: 20px;
     margin-bottom: 30px;
     font-family: montserrat-bold;
-
-    
-
 }
 
 

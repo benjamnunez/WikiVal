@@ -21,7 +21,8 @@ isLoading = true;
     }
 
     ionViewWillEnter() {
-      this.isLoading= true
+
+      
       
         this.valorantService.showWeapons().subscribe((data: any) => {
           this.guns = data.data;
@@ -33,8 +34,8 @@ isLoading = true;
           this.isLoading = false;  // Detiene la animación de carga en caso de error
         }
       );
-  }
 
+    }
   
 
   async openSkinsModal(gun: any) {

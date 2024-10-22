@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { User } from 'src/app/models/user.model';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-login',
@@ -9,63 +13,44 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   //modelo login que permita obtener la info. de username y password
-  login:any={
-    username:"",
-    password:""
-  }
-  //variable para obtener el nombre del campo vacío
-  field:string="";
+  form = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  })
+
+  
   constructor(
     public router: Router,
     public toastController:ToastController,
   ) { }
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   ngOnInit() {
   }
 
-  ingresar(){
-    if(this.validateModel(this.login)){
-      //agrego creación de parámetros
-      let navigationExtras : NavigationExtras = {
-        state:{login: this.login}
-      };
-      this.router.navigate(['/tabs/home'], navigationExtras);
-      this.presentToast("top","Bienvenido "+ this.login.username,1500)
-    }else{
-      this.presentToast("middle","Error - Falta: "+this.field);
-    }    
+  async submit(){
+    if (this.form.valid) {
+
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      this.firebaseSvc.signIn(this.form.value as User).then(res =>{
+        console.log(res);
+      }).catch(error=>{
+        console.log(error);
+      }).finally(() => {
+        loading.dismiss();
+      })
+    }
   }
+
 
   recoveryAcc(){
     this.router.navigate(['forgot-account'])
   }
 
-  /**
-   * validateModel para validar el ingreso de algo en los
-   * campos de mi html mediante el modelo login
-   */
-  validateModel(model:any){
-    //Recorro todas las entradas que me entrega el Object entries obteniendo
-    //el par key : value
-    for(var [key ,value] of Object.entries(model)){
-      //reviso si value = "" y retorno false e indico campo faltante
-      if(value == ""){
-        this.field = key;
-        return false;
-      }
-    } 
-    //si termina el for es que los valores fueron ingresados
-    return true;
-  }
 
-  async presentToast(position: 'top' | 'middle' | 'bottom', msg:string, duration?:number) {
-    const toast = await this.toastController.create({
-      message: msg,
-      duration: duration?duration:2500,
-      position: position,
-    });
 
-    await toast.present();
-  }
 
 }
