@@ -32,8 +32,8 @@ export class LoginPage implements OnInit {
         state:{login: this.login}
       };
       const usuario = this.login.username
-      console.log(usuario)
-      this.bdlocal.guardarUsuario(usuario, true);
+      console.log(usuario) //Me entrega el nombre de usuario de quién entre
+      this.bdlocal.logIn(usuario, true);//Se le entrega el nombre de usuario y si logra estar logeado a la función
       this.router.navigate(['/tabs/home'], navigationExtras);
       this.presentToast("top","Bienvenido "+ this.login.username,1500)
     }else{

@@ -6,7 +6,7 @@ import { Users } from '../interfaces/users';
   providedIn: 'root'
 })
 export class BdlocalService {
-
+  private isLoggedIn?: boolean;
   usuario: Users[] = [];
   private _storage: Storage | null=null;
 
@@ -18,7 +18,7 @@ export class BdlocalService {
     this._storage = storage;
   }
 
-  guardarUsuario(uName:string, ingresado: boolean){
+  logIn(uName:string, ingresado: boolean){
     this.usuario.unshift({username:uName, joined: ingresado})
     this._storage?.set('usuario',this.usuario);
     console.log('Usuario guardado')
@@ -29,5 +29,11 @@ export class BdlocalService {
     if(miUsuario){
       this.usuario=miUsuario;
     }
+  }
+
+  async isAuthenticated(){
+    const token = await this._storage?.get('usuario')
+    this.isLoggedIn = !!token;
+    return this.isLoggedIn;
   }
 }
