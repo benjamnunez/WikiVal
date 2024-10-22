@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { BdlocalService } from 'src/app/services/bdlocal.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
   constructor(
     public router: Router,
     public toastController:ToastController,
+    private bdlocal : BdlocalService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,9 @@ export class LoginPage implements OnInit {
       let navigationExtras : NavigationExtras = {
         state:{login: this.login}
       };
+      const usuario = this.login.username
+      console.log(usuario)
+      this.bdlocal.guardarUsuario(usuario, true);
       this.router.navigate(['/tabs/home'], navigationExtras);
       this.presentToast("top","Bienvenido "+ this.login.username,1500)
     }else{
