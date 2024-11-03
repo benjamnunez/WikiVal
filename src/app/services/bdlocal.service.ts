@@ -8,10 +8,12 @@ import { Users } from '../interfaces/users';
 export class BdlocalService {
   private isLoggedIn?: boolean;
   usuario: Users[] = [];
+  token = '';
   private _storage: Storage | null=null;
 
   constructor(private storage : Storage) {
     this.Init();
+    this.cargarDatos();
   }
   async Init(){
     const storage = await this.storage.create();
@@ -31,10 +33,7 @@ export class BdlocalService {
     }
   }
 
-  async isAuthenticated(){
-    const token = await this._storage?.get('usuario')
-    this.isLoggedIn = !!token;
-    console.log(this.isLoggedIn)
-    return this.isLoggedIn;
+  async isAuth(){
+    
   }
 }

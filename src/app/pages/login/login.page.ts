@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -14,6 +15,7 @@ export class LoginPage implements OnInit {
     username:"",
     password:""
   }
+  private tokenKey = '';
   //variable para obtener el nombre del campo vacío
   field:string="";
   constructor(
@@ -31,11 +33,10 @@ export class LoginPage implements OnInit {
       let navigationExtras : NavigationExtras = {
         state:{login: this.login}
       };
-      const usuario = this.login.username
-      console.log(usuario) //Me entrega el nombre de usuario de quién entre
+      const usuario = this.login.username//Guarda el nombre de usuario que ingreso en la app
       this.bdlocal.logIn(usuario, true);//Se le entrega el nombre de usuario y si logra estar logeado a la función
       this.router.navigate(['/tabs/home'], navigationExtras);
-      this.presentToast("top","Bienvenido "+ this.login.username,1500)
+      this.presentToast("top","Bienvenido "+ usuario,1500)
     }else{
       this.presentToast("middle","Error - Falta: "+this.field);
     }    
