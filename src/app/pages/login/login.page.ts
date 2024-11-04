@@ -15,7 +15,6 @@ export class LoginPage implements OnInit {
     username:"",
     password:""
   }
-  private tokenKey = '';
   //variable para obtener el nombre del campo vacío
   field:string="";
   constructor(
@@ -33,8 +32,9 @@ export class LoginPage implements OnInit {
       let navigationExtras : NavigationExtras = {
         state:{login: this.login}
       };
+      const token = 'ingresado'; //
       const usuario = this.login.username//Guarda el nombre de usuario que ingreso en la app
-      this.bdlocal.logIn(usuario, true);//Se le entrega el nombre de usuario y si logra estar logeado a la función
+      this.bdlocal.setToken(token);//Se guarda el token para evaluar luego si la sesión está iniciada
       this.router.navigate(['/tabs/home'], navigationExtras);
       this.presentToast("top","Bienvenido "+ usuario,1500)
     }else{
