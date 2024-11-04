@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
   constructor(
     public router: Router,
     public toastController:ToastController,
+    
   ) { }
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
@@ -37,6 +38,7 @@ export class LoginPage implements OnInit {
 
       this.firebaseSvc.signIn(this.form.value as User).then(res =>{
         console.log(res);
+        this.router.navigate(['/tabs/armas'])
       }).catch(error=>{
         console.log(error);
       }).finally(() => {

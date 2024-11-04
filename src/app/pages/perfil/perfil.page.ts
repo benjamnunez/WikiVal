@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UtilsService } from "../../services/utils.service";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',

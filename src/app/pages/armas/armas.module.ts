@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ArmasPageRoutingModule } from './armas-routing.module';
 import { ArmasPage } from './armas.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ArmasPage } from './armas.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ArmasPageRoutingModule
+    ArmasPageRoutingModule,
+    SharedModule
   ],
   declarations: [ArmasPage]
 

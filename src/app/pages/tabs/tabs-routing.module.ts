@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () =>import('../armas/armas.module').then(m => m.ArmasPageModule)
       },
       {
-        path:'home',
-        loadChildren: () =>import('../home/home.module').then(m=>m.HomePageModule)
+        path:'perfil',
+        loadChildren: () =>import('../perfil/perfil.module').then(m=>m.PerfilPageModule)
       },
       {
         path:'mapas',
@@ -25,14 +25,14 @@ const routes: Routes = [
       },
       {
         path:'',
-        redirectTo:'/tabs/home',
+        redirectTo:'/tabs/armas',
         pathMatch:'full'
       }
     ]
   },
   {
     path:'',
-    redirectTo:'/tabs/home',
+    redirectTo:'/tabs/armas',
     pathMatch:'full'
   }
 ];

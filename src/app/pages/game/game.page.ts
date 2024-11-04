@@ -56,12 +56,12 @@ export class GamePage  {
       this.msg = 'CORRECTO';
       this.intentos = 5;
       this.racha++;
-      this.generarPersonajeRandom();
+      
       await this.guardarRacha();  // Guardar la racha cuando se acierte
       
-        this.isLoading = true;
+        
         setTimeout(() => {
-          this.isLoading=false;
+          this.generarPersonajeRandom();
         }, 2000);
       
     
