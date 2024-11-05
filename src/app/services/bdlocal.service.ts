@@ -1,66 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
-import { Users } from '../interfaces/users';
+import { Storage } from "@ionic/storage-angular";
+import { Iracha } from '../iracha';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BdlocalService {
 
-  private _storage: Storage | null=null;
+private readonly STORAGE_KEY = 'racha';
+private _storage: Storage | null=null;
 
-  constructor(private storage : Storage) {
+  constructor(private storage: Storage) {
     this.Init();
   }
+
   async Init(){
-    const storage = await this.storage.create();
-    this._storage = storage;
+const storage = await this.storage.create();
+this._storage = storage;
   }
 
-  //Guardar token en el almacenamiento local
-  async setToken(token: String){
-    await this._storage?.set('authToken', token);
-    console.log(token);
+  async guardarRacha(racha: Iracha): Promise<void>{
+    this._storage?.set(this.STORAGE_KEY,racha)
   }
 
-  //Obtener el token de autenticación
-  async getToken(){
-    await this.Init();
-    return await this._storage?.get('authToken') || null;
+  async obtenerRacha(): Promise<Iracha>{
+    const racha = await this._storage?.get(this.STORAGE_KEY);
+    return racha ? racha : { intRacha: 0 };
   }
-
-  //verificar si el usuario está autenticado
-  async isAuthenticated(){
-    const token = await this.getToken();
-    console.log(!!token)
-    return !!token; // Si el token existe retorna true
+  async resetearRacha(): Promise<void> {
+    await this.guardarRacha({ intRacha: 0 });
   }
-
-  //Eliminar el token para cerrar sesión
-  async logout(){
-    await this._storage?.remove('authToken');
-  }
-  /*
-  logIn(uName:string, ingresado: boolean){
-    const estado = this.usuario.find(c => c.username === uName)
-    if (!estado){
-      this.usuario.unshift({username:uName, joined: ingresado})
-      this._storage?.set('usuario',this.usuario);
-      console.log('Usuario guardado')
-    }
-  }
-
-  async cargarDatos(){
-    const miUsuario= await this.storage.get('usuario');
-    if(miUsuario){
-      this.usuario=miUsuario;
-    }
-  }
-
-  async isAuth(){
-    const estado = this.usuario.find(c => c.joined === true);
-    console.log(!!estado)
-    return !!estado
-  }
-*/
 }
