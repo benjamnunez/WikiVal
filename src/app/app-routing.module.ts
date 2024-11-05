@@ -27,11 +27,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule),
     canActivate: [noAuthGuard]
   },
   {
@@ -42,7 +42,7 @@ const routes: Routes = [
  
   {
     path: 'forgot-account',
-    loadChildren: () => import('./pages/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
+    loadChildren: () => import('./pages/auth/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
   },
   {
     path: 'mapas',
@@ -56,10 +56,13 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    loadChildren: () => import('./pages/auth/perfil/perfil.module').then( m => m.PerfilPageModule),
     canActivate: [authGuard]
   },
-
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
 ];
 
 @NgModule({
