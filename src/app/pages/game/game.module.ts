@@ -1,10 +1,12 @@
-// agentes.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { AgentesPageRoutingModule } from './agentes-routing.module';
-import { AgentesPage } from './agentes.page';
+
+import { GamePageRoutingModule } from './game-routing.module';
+
+import { GamePage } from './game.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -12,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    AgentesPageRoutingModule,
+    GamePageRoutingModule,
     SharedModule
   ],
-  declarations: [AgentesPage]
+  declarations: [GamePage]
 })
-export class AgentesPageModule {}
+export class GamePageModule {}

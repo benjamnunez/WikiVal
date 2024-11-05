@@ -1,34 +1,58 @@
-<ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar>
-      <div class="header">
-        <ion-icon class="atras" name="arrow-back-outline" [routerLink]="''"></ion-icon>
-        <ion-title class="toolbar-tittle">Crear una Cuenta</ion-title>
-      </div>
-    </ion-toolbar>
-  </ion-header>
-  <form [formGroup]="formulario" (ngSubmit)="enviarForm()">
-    <ion-card>
-      <ion-card-title id="titulo">Ingrese los datos</ion-card-title>
-      <ion-list>
-        <ion-item>
-          <ion-input label="Correo" labelPlacement="floating"
-          name="email" formControlName="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuario" labelPlacement="floating"
-          name="username" formControlName="username"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="password" label="Contraseña" labelPlacement="floating"
-          name="contrasena" formControlName="contrasena"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="password" label="Contraseña" labelPlacement="floating"
-          name="contrasena2" formControlName="contrasena2"></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-card>
-    <ion-button style="text-align: center; bottom: 0;" type="submit">Crear Cuenta</ion-button>
+<app-header backButton="login" title="Registro"></app-header>
+<ion-content>
+
+<div class="d-flex-center">
+  <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()">
+
+    <app-logo></app-logo>
+
+    <app-custon-input 
+    autocomplete="name"
+    icon="person-outline"
+    [control]="form.controls.name"
+    type="name"
+    label="Nombre"
+    ></app-custon-input>
+    
+    <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+      <div *ngIf="form.controls.name.errors?.['required']">El correo es Requerido</div>
+      <div *ngIf="form.controls.name.errors?.['minlenght']">El nombre debe tener minimo 4 Caracteres</div>
+    </div>
+
+    <app-custon-input 
+    autocomplete="email"
+    icon="mail-outline"
+    [control]="form.controls.email"
+    type="email"
+    label="Correo Electronico"
+    ></app-custon-input>
+    
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+      <div *ngIf="form.controls.email.errors?.['required']">El correo es Requerido</div>
+      <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+    </div>
+
+    
+    <app-custon-input 
+    [control]="form.controls.password"
+    icon="lock-closed-outline"
+    type="password"
+    label="Contraseña"
+    ></app-custon-input>
+
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+      <div *ngIf="form.controls.password.errors?.['required']">La Contraseña es Requerida</div>
+    </div>
+
+
+    <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+      Registrate
+      <ion-icon slot="end" name="person-add-outline"></ion-icon>
+    </ion-button>
+
   </form>
+</div>
+
+  
+
 </ion-content>

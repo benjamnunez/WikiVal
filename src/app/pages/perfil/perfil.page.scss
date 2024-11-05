@@ -11,3 +11,13 @@ ion-content{
     text-align: center;
     font-weight: bold;
 }
+.image-icon{
+    font-size: 100px;
+    opacity: 30%;
+}
+ion-avatar{
+    width: 200px;
+    height: 150px;
+    --border-radius:15px;
+    margin: 0 auto;
+}

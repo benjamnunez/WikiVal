@@ -1,32 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ValorantapiService } from 'src/app/services/valorantapi.service';
-//import {  } from "../";
-
 
 @Component({
   selector: 'app-agentes',
   templateUrl: './agentes.page.html',
   styleUrls: ['./agentes.page.scss'],
 })
-export class AgentesPage implements OnInit {
-agents: any[]=[];
-  
-  constructor(private valorantService: ValorantapiService) { }
+export class AgentesPage {
+  agents: any[] = [];
+  isLoading = true;
 
-  ngOnInit() {
-    this.mostrarAgents();
-  }
-  mostrarAgents(){
-    this.valorantService.mostrarAgentes().subscribe((data) =>{
-      this.agents=data.data;
-      console.log(this.agents)
-    } , 
-    (error)=>{
-      console.error('Error al obtener agentes:', error)
-    }
+  constructor(private valorantService: ValorantapiService) {}
+
+  
+
+  ionViewWillEnter() {
+    this.isLoading = true;  // Inicia la animación de carga
+
+    // Llamada al servicio para obtener los agentes
+    this.valorantService.showAgents().subscribe(
+      (data) => {
+        this.agents = data.data;
+        console.log(this.agents);
+        this.isLoading = false;  // Detiene la animación de carga
+      },
+      (error) => {
+        console.error('Error al obtener agentes:', error);
+        this.isLoading = false;  // Detiene la animación de carga en caso de error
+      }
     );
   }
-
-
-
 }

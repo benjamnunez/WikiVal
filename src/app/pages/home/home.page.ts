@@ -1,14 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import type { Animation } from '@ionic/angular';
-import { AnimationController, IonCard } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit, AfterViewInit {
-
+export class HomePage implements OnInit {
   consejos:string[]=[
     'Conoce los Agentes: Familiarízate con los agentes y sus habilidades. Aprende qué puede hacer cada uno y cómo puedes contrarrestarlos.',
 
@@ -53,34 +50,16 @@ export class HomePage implements OnInit, AfterViewInit {
 
 consejoAleatorio:string='';
 
-  constructor( private animationCtrl: AnimationController) {
+  constructor() {
     this.generarConsejoRandom();
   }
 
   ngOnInit() {
   }
   
-  ngAfterViewInit() {
-    const cardElement = document.querySelector('.animar-card');
-    
-    if (cardElement) {
-      const animation = this.animationCtrl.create()
-        .addElement(cardElement) // Selecciona el ion-card
-        .duration(2500)
-        .iterations(Infinity)
-        .direction('alternate')
-        .fromTo('background', '#383131', 'var(--background)');
-
-      animation.play();
-    } else {
-      console.error('El ion-card no se encontró en el DOM.');
-    }
-  }
-
   generarConsejoRandom(){
     const indiceAleatorio = Math.floor(Math.random()* this.consejos.length);
     this.consejoAleatorio=this.consejos[indiceAleatorio];
   }
-
 
 }

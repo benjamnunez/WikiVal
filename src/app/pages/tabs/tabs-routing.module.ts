@@ -16,23 +16,23 @@ const routes: Routes = [
         loadChildren: () =>import('../armas/armas.module').then(m => m.ArmasPageModule)
       },
       {
-        path:'home',
-        loadChildren: () =>import('../home/home.module').then(m=>m.HomePageModule)
+        path:'perfil',
+        loadChildren: () =>import('../perfil/perfil.module').then(m=>m.PerfilPageModule)
       },
       {
-        path:'sprays',
-        loadChildren: () =>import('../sprays/sprays.module').then(m=>m.SpraysPageModule)
+        path:'mapas',
+        loadChildren: () =>import('../mapas/mapas.module').then(m=>m.MapasPageModule)
       },
       {
         path:'',
-        redirectTo:'/tabs/home',
+        redirectTo:'/tabs/armas',
         pathMatch:'full'
       }
     ]
   },
   {
     path:'',
-    redirectTo:'/tabs/home',
+    redirectTo:'/tabs/armas',
     pathMatch:'full'
   }
 ];

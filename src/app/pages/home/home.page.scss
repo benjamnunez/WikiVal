@@ -3,6 +3,14 @@ ion-card, ion-content, ion-item{
     text-align: center;
 }
 
+ion-header{
+    text-align: center;
+}
+
+ion-content{
+    
+}
+
 ion-card-title{
     color: #FFA500;
     
@@ -10,4 +18,8 @@ ion-card-title{
 
 ion-card-content{
     color: #CCCCCC;
+}
+.button{
+    margin-bottom: 20px;
+    --background: #FF4655;
 }
