@@ -1,0 +1,97 @@
+//GIF
+.loading-overlay {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1C1C;
+    z-index: 9999;
+  }
+  
+  .loading-overlay img {
+
+    width: 80%;
+    height: 40%;
+    object-fit: cover;
+    border-radius: 150px;
+  }
+//FIN GIF
+
+ion-card, ion-item{
+    --background: #1C1C1C;
+    text-align: center;
+    
+}
+ion-card-title{
+    color: #FFA500;
+    font-family: poppins-semiboldItalic;
+    
+}
+.button{
+    margin-bottom: 20px;
+    --background: #FF4655;
+}
+
+
+ion-content {
+    --background:#1C1C1C; 
+    --ion-background-color: transparent; /* Esto asegura que el color de fondo no cubra la imagen */
+  }
+
+ion-header{
+    text-align: center;
+}
+ion-card{
+    background-color: transparent;
+}
+ion-item{
+    --background: transparent;
+}
+
+ion-card-content{
+    color: #CCCCCC;
+    font-family: opensans-regular;
+}
+
+.img-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    position: relative;
+
+}
+
+.agent-img {
+    border-radius: 10px;
+}
+
+.text-content {
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 115%;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    margin-top: -45px;
+}
+
+.agent-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+}
