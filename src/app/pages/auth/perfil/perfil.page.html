@@ -1,0 +1,50 @@
+<app-header title="Perfil"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+      <ion-avatar *ngIf="form.value.image">
+        <img [src]="form.value.image" alt="">
+      </ion-avatar>
+
+      <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
+      <br>
+
+      <ion-button (click)="takeImage()" class="box-shadow" shape="round" size="small">Cambiar Foto</ion-button>
+    </ion-card-content>
+    <ion-card-subtitle>
+      <ion-item class="input_login">
+        <ion-input maxlength="20" label="Usuario" labelPlacement="floating"  ></ion-input>
+      </ion-item>
+      <ion-item class="input_login">
+        <ion-input maxlength="15" label="Password" labelPlacement="floating" type="password" ></ion-input>
+      </ion-item>
+
+    </ion-card-subtitle>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Minijuegos</ion-card-title>
+      <ion-card-content>
+        <ion-button class="button" routerLink="/game" shape="round">
+          Adivina el Agente
+        </ion-button>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tus LineUps</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button routerLink="/lineups"  shape="round">
+        LineUps
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
