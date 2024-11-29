@@ -1,0 +1,7 @@
+{
+  "name": "wikival",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
