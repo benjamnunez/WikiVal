@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { UtilsService } from "../../../services/utils.service";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavigationExtras, Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { User } from 'src/app/models/user.model';
 
 
 @Component({
@@ -15,13 +16,16 @@ export class PerfilPage implements OnInit {
     image: new FormControl('',[Validators.required])
   })
 
-  constructor(public router: Router) { }
+  utilsvc = inject(UtilsService);
+  firebaseSvc = inject(FirebaseService);
 
-  utilsvc = inject(UtilsService)
+  user = {} as User;
 
   ngOnInit() {
+    this.obtUserName();
+    this.user = this.utilsvc.getFromLocalStorage('user');
   }
-
+//uso de la camara
   async takeImage(): Promise<void> {
     try {
       const result = await this.utilsvc.takePicture('Foto de Perfil');
@@ -40,7 +44,24 @@ export class PerfilPage implements OnInit {
       console.error('Error al tomar la foto:', error);
     }
   }
-  agentesGame(){
-    this.router.navigate(['/game'])
+
+  //Cerrar sesión
+  signOut() {
+    this.firebaseSvc.signOut();
+  }
+
+  //Página no encontrada
+  notFound(){
+    this.utilsvc.routerLink('/**');
+  }
+
+  lineUps(){
+    this.utilsvc.routerLink('/lineups')
+  }
+
+  obtUserName(){
+    this.utilsvc.loadingUserName();
+    let nombre :string=this.utilsvc.getFromLocalStorage(this.user.name);
+    return nombre;
   }
 }  

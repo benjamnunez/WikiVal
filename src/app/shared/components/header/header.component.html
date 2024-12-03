@@ -3,14 +3,14 @@
 
     <ion-buttons slot="start">
       <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
-
-      <ion-button (click)="dismissModal()" slot="start" fill="clear" *ngIf="isModal">
-        <ion-icon  name="close-circle-outline"></ion-icon>
-      </ion-button>
-
     </ion-buttons>
 
+    <ion-title>
+      <div class="toolbar-title">
+        <span>{{title}}</span>
+        <span *ngIf="user && user.name">{{user.name}}</span>
+      </div>
+    </ion-title>
 
-    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>

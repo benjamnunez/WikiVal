@@ -1,0 +1,27 @@
+ion-card, ion-item, ion-avatar{
+    --background: rgb(236, 227, 227);
+    text-align: center;
+}
+ion-avatar{
+    width: 200px;
+    height: 150px;
+    --border-radius:15px;
+    margin: 0 auto;
+}
+ion-card-title{
+    color: #FFA500;
+    font-family: poppins-semiboldItalic;
+    
+}
+ion-card-subtitle{
+    margin-bottom: 15px;
+}
+ion-content {
+    --background:#1C1C1C; 
+}
+ion-card{
+    margin-bottom: 20px;
+}
+.button{
+    --background: #FF4655;
+}

@@ -1,39 +1,41 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { LoadingController, ModalController, ModalOptions, ToastController } from '@ionic/angular';
-import { User } from '../models/user.model';
+import { LoadingController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
+
+
   loadingCtrl = inject(LoadingController);
   toastCtrl = inject(ToastController);
-  modalCtrl = inject(ModalController)
   router = inject(Router);
+
+  reloadPage() {
+    window.location.reload();
+  }
 
   loading(){
     return this.loadingCtrl.create({spinner: 'crescent'})
   }
 
-  
+  loadingUserName(){
+    return this.loadingCtrl.create({spinner: 'crescent', duration: 3000})
+  }
 
-  async takePicture (promptLabelHeader:string)  {
-    return await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Prompt,
-      promptLabelHeader,
-      promptLabelPhoto:'Selecciona una imagen',
-      promptLabelPicture:'Toma una foto'
-    });
-  
-  };
-
-
-  
+async takePicture(promptLabelHeader: string) {
+  return await Camera.getPhoto({
+    quality: 90,
+    allowEditing: true,
+    resultType: CameraResultType.DataUrl,
+    source: CameraSource.Prompt,
+    promptLabelHeader,
+    promptLabelPhoto: 'Seleccione una foto',
+    promptLabelPicture:' Toma una foto'
+  });
+};
 //Enruta a cualquier pagina disponible
   routerLink(url: string) {
     return this.router.navigateByUrl(url);
@@ -47,20 +49,6 @@ export class UtilsService {
   //Obtiene un elemento desde localstorage
   getFromLocalStorage(key: string) {
     return JSON.parse(localStorage.getItem(key))
-  }
-
-  //Modal
-  async presentModal(opts: ModalOptions) {
-    const modal = await this.modalCtrl.create(opts);
-    await modal.present();
-
-    const { data } = await modal.onWillDismiss();
-    if (data) return data;
-
-  }
-  
-  dismissModal(data?: any) {
-    return this.modalCtrl.dismiss(data);
   }
 
 

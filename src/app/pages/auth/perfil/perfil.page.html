@@ -1,16 +1,17 @@
-<app-header title="Perfil"></app-header>
+<app-header   title="Perfil"></app-header>
 
 <ion-content [fullscreen]="true">
+
+
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Perfil</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      
       <ion-avatar *ngIf="form.value.image">
         <img [src]="form.value.image" alt="">
       </ion-avatar>
-
       <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
       <br>
 
@@ -18,31 +19,33 @@
     </ion-card-content>
     <ion-card-subtitle>
       <ion-item class="input_login">
-        <ion-input maxlength="20" label="Usuario" labelPlacement="floating"  ></ion-input>
-      </ion-item>
-      <ion-item class="input_login">
-        <ion-input maxlength="15" label="Password" labelPlacement="floating" type="password" ></ion-input>
+        <ion-input maxlength="20" label="Usuario" placeholder="{{ user.name }}" labelPlacement="floating"  ></ion-input>
       </ion-item>
 
+      <ion-button  expand="block"  shape="round">
+        Guardar
+      </ion-button>
     </ion-card-subtitle>
+    
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Minijuegos</ion-card-title>
-      <ion-card-content>
-        <ion-button class="button" routerLink="/game" shape="round">
-          Adivina el Agente
-        </ion-button>
-      </ion-card-content>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Tus LineUps</ion-card-title>
+      <ion-card-title>Line ups</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-button routerLink="/lineups"  shape="round">
-        LineUps
+      <ion-button (click)="lineUps()" expand="block" shape="round">
+        Line Ups
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Cerrar Sesion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="signOut()" expand="block"  shape="round">
+        Cerrar sesión
       </ion-button>
     </ion-card-content>
   </ion-card>

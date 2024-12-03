@@ -1,5 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
 import { UtilsService } from 'src/app/services/utils.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,16 +9,19 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
+  utilsvc = inject(UtilsService);
 
   @Input() title!: string;
   @Input() backButton!: string;
-  @Input() isModal!: boolean;
+  @Input() username!: string;
 
-  utils5vc = inject(UtilsService);
+  user = {} as User;
 
-  ngOnInit() {}
-
-  dismissModal(){
-    this.utils5vc.dismissModal();
+  ngOnInit() {
+    this.user = this.utilsvc.getFromLocalStorage('user');
   }
+  ionViewDidEnter() {
+    this.utilsvc.loading;
+  }
+
 }

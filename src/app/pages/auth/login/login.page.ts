@@ -37,8 +37,9 @@ export class LoginPage implements OnInit {
       await loading.present();
 
       this.firebaseSvc.signIn(this.form.value as User).then(res =>{
-        console.log(res);
-        this.router.navigate(['/tabs/armas'])
+        
+        this.getUserInfo(res.user.uid);
+
       }).catch(error=>{
         console.log(error);
       }).finally(() => {
@@ -47,7 +48,31 @@ export class LoginPage implements OnInit {
     }
   }
 
+  async getUserInfo(uid: string){
+    if (this.form.valid) {
 
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      let path = `users/${uid}`;
+      delete this.form.value.password;
+
+      this.firebaseSvc.getDocument(path).then((user: User) =>{
+
+        this.utilsSvc.saveInLocalStorage('user', user);
+        this.utilsSvc.routerLink('/tabs/armas');
+        this.form.reset();
+      }).catch(error=>{
+        console.log(error);
+      }).finally(() => {
+        loading.dismiss();
+      })
+    }
+  }
+
+  recoveryAcc(){
+    this.router.navigate(['forgot-account'])
+  }
 
 
 
