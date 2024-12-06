@@ -1,0 +1,85 @@
+
+ion-content, ion-header{text-align: center;}
+ion-content {
+    font-family: opensans-regular;
+    --background:#1C1C1C;
+    }
+
+ion-card{
+    --background: rgb(236, 227, 227);
+}
+
+ion-card-header {
+  border-bottom: 2px solid #1C1C1C; 
+  padding-bottom: 10px;
+}
+
+ion-card-title {
+  font-size: 1.5em;
+
+}
+
+.input{
+    margin-bottom: 20px;
+    font-family: poppins-semiboldItalic;
+}
+
+.button{
+    margin-bottom: 20px;
+    --background: #FF4655;
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  
+.card-container ion-card-title {
+    flex-grow: 1; 
+  }
+
+.racha{
+    text-align: center;
+    padding: 10px;
+    font-family: poppins-semiboldItalic;
+    color: #FF4655;
+    font-size:  larger;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .agent-img {
+    width: 100%;
+    height: auto;
+    transition: filter 0.1s ;
+    
+  }
+  
+  .agent-img.hidden {
+    filter: brightness(0); 
+  }
+  
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .agent-card {
+    width: 80%;
+    max-width: 400px;
+  }
+  .inputAgente{
+    font-family: poppins-semibold;
+    font-size: 90%;
+  }
+  
+
+  

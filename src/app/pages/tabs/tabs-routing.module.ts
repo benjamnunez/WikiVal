@@ -9,19 +9,19 @@ const routes: Routes = [
     children: [
       {
         path: 'agentes',
-        loadChildren: () => import('../agentes/agentes.module').then(m => m.AgentesPageModule)
+        loadChildren: () => import('../aplicacion/agentes/agentes.module').then(m => m.AgentesPageModule)
       },
       {
         path: 'armas',
-        loadChildren: () =>import('../armas/armas.module').then(m => m.ArmasPageModule)
+        loadChildren: () =>import('../aplicacion/armas/armas.module').then(m => m.ArmasPageModule)
       },
       {
         path:'perfil',
         loadChildren: () =>import('../auth/perfil/perfil.module').then(m=>m.PerfilPageModule)
       },
       {
-        path:'mapas',
-        loadChildren: () =>import('../mapas/mapas.module').then(m=>m.MapasPageModule)
+        path:'game',
+        loadChildren: () =>import('../aplicacion/game/game.module').then(m=>m.GamePageModule)
       },
       {
         path:'',

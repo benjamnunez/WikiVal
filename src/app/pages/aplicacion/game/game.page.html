@@ -1,0 +1,46 @@
+<app-header title="Minijuego"></app-header>
+
+
+
+<ng-template #noAgents>
+  <p>No se encontraron agentes.</p>
+</ng-template>
+
+<ion-content class="ion-padding" >
+
+
+
+<div class="game-container" >
+  <ion-card *ngIf="currentAgent" class="agent-card">
+    <ion-card-header>
+      <ion-card-title style="color: black;">Adivina el agente</ion-card-title>  
+    </ion-card-header>
+    <div class="img-container" >
+      <img 
+        [src]="currentAgent.fullPortrait" 
+        alt="Agente oculto" 
+        [class.hidden]="!currentAgent.isGuessed" 
+        class="agent-img" 
+      />
+    </div>
+
+    <ion-item style="--background: rgb(236, 227, 227); margin-bottom: 15px;">
+      <ion-input  fill="outline" style="color: black; background-color: white; border-radius: 15px;"
+        placeholder="Escribe el nombre del agente" 
+        [(ngModel)]="userGuess" class="inputAgente">
+      </ion-input>
+    </ion-item>
+    
+    <ion-button [disabled]="isDisabled" expand="block" (click)="checkGuess()">
+      Verificar
+    </ion-button>
+  </ion-card>
+</div>
+
+<div><h1 class="racha">Racha : {{racha}}</h1></div>
+
+<ion-text *ngIf="message" color="primary">
+  <p>{{ message }}</p>
+</ion-text>
+
+</ion-content>

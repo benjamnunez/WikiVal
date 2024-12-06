@@ -8,17 +8,22 @@ import { LoadingController, ToastController } from '@ionic/angular';
 })
 export class UtilsService {
 
+
   loadingCtrl = inject(LoadingController);
   toastCtrl = inject(ToastController);
   router = inject(Router);
+
+  reloadPage() {
+    window.location.reload();
+  }
 
   loading(){
     return this.loadingCtrl.create({spinner: 'crescent'})
   }
 
-  async
-
-  
+  loadingUserName(){
+    return this.loadingCtrl.create({spinner: 'crescent', duration: 3000})
+  }
 
 async takePicture(promptLabelHeader: string) {
   return await Camera.getPhoto({
@@ -45,4 +50,6 @@ async takePicture(promptLabelHeader: string) {
   getFromLocalStorage(key: string) {
     return JSON.parse(localStorage.getItem(key))
   }
+
+
 }

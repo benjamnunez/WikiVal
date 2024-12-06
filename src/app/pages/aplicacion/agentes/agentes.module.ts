@@ -1,12 +1,10 @@
+// agentes.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { PerfilPageRoutingModule } from './perfil-routing.module';
-
-import { PerfilPage } from './perfil.page';
+import { AgentesPageRoutingModule } from './agentes-routing.module';
+import { AgentesPage } from './agentes.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -14,9 +12,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule,
+    AgentesPageRoutingModule,
     SharedModule
   ],
-  declarations: [PerfilPage]
+  declarations: [AgentesPage]
 })
-export class PerfilPageModule {}
+export class AgentesPageModule {}

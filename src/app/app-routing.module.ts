@@ -12,17 +12,12 @@ const routes: Routes = [
   },
   {
     path: 'agentes',
-    loadChildren: () => import('./pages/agentes/agentes.module').then( m => m.AgentesPageModule),
+    loadChildren: () => import('./pages/aplicacion/agentes/agentes.module').then( m => m.AgentesPageModule),
     canActivate: [authGuard]
   },
   {
     path: 'armas',
-    loadChildren: () => import('./pages/armas/armas.module').then( m => m.ArmasPageModule),
-    canActivate: [authGuard]
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./pages/aplicacion/armas/armas.module').then( m => m.ArmasPageModule),
     canActivate: [authGuard]
   },
   {
@@ -39,25 +34,23 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
     canActivate: [authGuard]
   },
- 
   {
     path: 'forgot-account',
     loadChildren: () => import('./pages/auth/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
   },
   {
-    path: 'mapas',
-    loadChildren: () => import('./pages/mapas/mapas.module').then( m => m.MapasPageModule),
-    canActivate: [authGuard]
-  },
-  {
     path: 'game',
-    loadChildren: () => import('./pages/game/game.module').then( m => m.GamePageModule),
+    loadChildren: () => import('./pages/aplicacion/game/game.module').then( m => m.GamePageModule),
     canActivate: [authGuard]
   },
   {
     path: 'perfil',
     loadChildren: () => import('./pages/auth/perfil/perfil.module').then( m => m.PerfilPageModule),
     canActivate: [authGuard]
+  },
+  {
+    path: 'lineups',
+    loadChildren: () => import('./pages/aplicacion/lineups/lineups.module').then( m => m.LineupsPageModule)
   },
   {
     path: '**',

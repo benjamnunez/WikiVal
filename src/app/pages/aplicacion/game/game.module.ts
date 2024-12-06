@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilPageRoutingModule } from './perfil-routing.module';
+import { GamePageRoutingModule } from './game-routing.module';
 
-import { PerfilPage } from './perfil.page';
+import { GamePage } from './game.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule,
+    GamePageRoutingModule,
     SharedModule
   ],
-  declarations: [PerfilPage]
+  declarations: [GamePage]
 })
-export class PerfilPageModule {}
+export class GamePageModule {}
