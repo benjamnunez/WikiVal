@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
 
-  firebaseConfig: {
-    apiKey: "AIzaSyDlFyleDNCeMloawiGchVvGaA_K0DD22F8",
-    authDomain: "wikivalo-70ae7.firebaseapp.com",
-    projectId: "wikivalo-70ae7",
-    storageBucket: "wikivalo-70ae7.firebasestorage.app",
-    messagingSenderId: "259157579102",
-    appId: "1:259157579102:web:db348f1802678763fc2bcf"
+  firebaseConfig : {
+    apiKey: "AIzaSyD-ffrM7qqsZ10eV0oO-DnxYgRR7DrFLjw",
+    authDomain: "wikival-698f6.firebaseapp.com",
+    projectId: "wikival-698f6",
+    storageBucket: "wikival-698f6.firebasestorage.app",
+    messagingSenderId: "862466345177",
+    appId: "1:862466345177:web:e62fd604724f48d265d6c8"
   }
 };
