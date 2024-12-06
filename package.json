@@ -1,5 +1,5 @@
 {
-  "name": "wikival",
+  "name": "WikiVal",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
-    "@capacitor/android": "^6.1.2",
+    "@capacitor/android": "6.1.2",
     "@capacitor/app": "6.0.1",
     "@capacitor/camera": "^6.0.2",
     "@capacitor/core": "^6.1.2",
