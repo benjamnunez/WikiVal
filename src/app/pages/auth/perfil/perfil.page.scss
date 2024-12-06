@@ -1,0 +1,44 @@
+ion-content{
+    --background: #1F2326;
+    --padding-top: var(--ion-safe-area-top,10);
+    --padding-bottom: var(--ion-safe-area-bottom,10);
+    text-align: center;
+    color: black;
+}
+ion-avatar{
+    width: 200px;
+    height: 150px;
+    --border-radius:15px;
+    margin: 0 auto;
+}
+ion-card{
+    --background: rgb(236, 227, 227);
+    color: #000000;
+}
+ion-card-title{
+    color: #000000;
+}
+ion-card-subtitle, ion-item{
+    --background: rgb(236, 227, 227);
+
+}
+
+//CLASES
+
+#titulo{
+    color: #FF9800;
+    text-align: center;
+    font-weight: bold;
+}
+.image-icon{
+    font-size: 100px;
+    opacity: 30%;
+}
+
+.button{
+    --background: #FF4655;
+    color: #ffffff;
+}
+
+
+
