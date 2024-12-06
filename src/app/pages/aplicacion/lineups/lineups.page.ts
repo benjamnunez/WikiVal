@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { timeInterval } from 'rxjs';
+import { lineup } from 'src/app/models/lineup.model';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -15,10 +17,6 @@ export class LineupsPage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
-
-
-
-  //modelo login que permita obtener la info. de username y password
   form = new FormGroup({
     id: new FormControl(''),
     image: new FormControl('', [Validators.required]),
@@ -27,9 +25,7 @@ export class LineupsPage implements OnInit {
 
   })
 
-
-
-
+  lineups:lineup[] = [];
   user = {} as User
 
   ngOnInit() {
@@ -58,15 +54,35 @@ export class LineupsPage implements OnInit {
 
       this.firebaseSvc.addDocument(path, this.form.value).then( async res =>{
 
-
-
       }).catch(error=>{
         console.log(error);
       }).finally(() => {
         loading.dismiss();
       })
-
     }
+  }
+
+  ionViewWillEnter(){
+    this.getLineup();
+  }
+  userr(): User{
+    return this.utilsSvc.getFromLocalStorage('user');
+  }
+  getLineup(){
+    let path = `users/${this.userr().uid}/lineups`;
+    let sub = this.firebaseSvc.getCollectionData(path).subscribe({
+      next:(res : any)=>{
+        console.log(res);
+        this.lineups = res;
+        sub.unsubscribe();
+      }
+    })
+  }
+  recargarPagina() {
+    setTimeout(() => {
+      this.utilsSvc.reloadPage()
+    },4000);
+    
   }
 
 }

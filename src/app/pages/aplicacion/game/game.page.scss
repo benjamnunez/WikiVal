@@ -1,57 +1,14 @@
-//GIF
-.loading-overlay {
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1C1C1C;
-    z-index: 9999;
-    
-    flex-direction: column;
-    color: #FFA500;
-    }
-
-    .fade-out {
-        opacity: 0;
-        transition: opacity 1s ease-in;
-    }
-
-    .fade-in {
-        opacity: 1;
-    }
-
-
-    .loading-overlay h1 {
-        margin-bottom: 100px; /* Ajusta el margen según sea necesario */
-        font-family: montserrat-bold;
-    }
-
-    .loading-overlay img {
-    width: 80%;
-    height: 40%;
-    object-fit: cover;
-    border-radius: 150px;
-    margin-left: -50px;
-    } 
-//FIN GIF
 
 ion-content, ion-header{text-align: center;}
 ion-content {
     font-family: opensans-regular;
+    --background:#1C1C1C;
     }
 
 ion-card{
     --background: rgb(236, 227, 227);
 }
-.pjRandom-img{
-    height: 35%;
-    margin-bottom: 50px;
-}
+
 .input{
     margin-bottom: 20px;
     font-family: poppins-semiboldItalic;
@@ -61,12 +18,6 @@ ion-card{
     margin-bottom: 20px;
     --background: #FF4655;
 }
-ion-card-title{
-    color: rgb(0, 0, 0);
-    margin-top: 20px;
-    margin-bottom: 30px;
-    font-family: montserrat-bold;
-}
 
 
 .card-container {
@@ -74,19 +25,57 @@ ion-card-title{
     justify-content: space-between; /* Separa los elementos */
     align-items: center; /* Alinea verticalmente */
   }
+  
 .card-container ion-card-title {
     flex-grow: 1; /* Hace que el título ocupe más espacio */
   }
-  
 
-  
-  ion-card-subtitle {
-    font-size: 0.8em; /* Ajusta el tamaño del subtítulo */
-    color: gray; /* Opcional: Cambia el color del subtítulo */
-  }
 .racha{
-    text-align: end;
+    text-align: center;
     padding: 10px;
     font-family: poppins-semiboldItalic;
     color: #FF4655;
+    font-size:  larger;
 }
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .agent-img {
+    width: 100%;
+    height: auto;
+    transition: filter 0.1s ease;
+  }
+  
+  .agent-img.hidden {
+    filter: brightness(0); 
+  }
+  
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .agent-card {
+    width: 80%;
+    max-width: 400px;
+  }
+  .inputAgente{
+    font-family: poppins-semibold;
+    font-size: 90%;
+  }
+  
+  ion-card-header {
+    border-bottom: 2px solid #1C1C1C; 
+    padding-bottom: 10px;
+  }
+  
+  ion-card-title {
+    font-size: 1.5em;
+
+  }

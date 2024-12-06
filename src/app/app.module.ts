@@ -5,7 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { WeaponSkinsModalComponent } from './pages/aplicacion/weapon-skins-modal/weapon-skins-modal.component';
+import { WeaponSkinsModalComponent } from './shared/components/weapon-skins-modal/weapon-skins-modal.component';
 import { IonicStorageModule } from "@ionic/storage-angular";
 
 //Firebase

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { transition } from '@angular/animations';
+import { ValorantapiService } from 'src/app/services/valorantapi.service';
 
 @Component({
   selector: 'app-game',
@@ -7,42 +7,82 @@ import { transition } from '@angular/animations';
   styleUrls: ['./game.page.scss'],
 })
 export class GamePage  {
+  
+  racha: number = 0; // Variable para almacenar la racha
+  agents: any[] = []; 
+  currentAgent: any = null; 
+  userGuess: string = ''; 
+  message: string = '';
 
-  personajes = [
-    { name: 'kayo', imgUrl: '../../../assets/gameImg/kayo.png' },
-    { name: 'breach', imgUrl: '../../../assets/gameImg/breach.png' },
-    { name: 'skye', imgUrl: '../../../assets/gameImg/skye.png' },
-    { name: 'fade', imgUrl: '../../../assets/gameImg/fade.png' },
-    { name: 'chamber', imgUrl: '../../../assets/gameImg/chamber.png' },
-    { name: 'deadlock', imgUrl: '../../../assets/gameImg/deadlock.png' },
-    { name: 'gekko', imgUrl: '../../../assets/gameImg/gekko.png' },
-    { name: 'cypher', imgUrl: '../../../assets/gameImg/cypher.png' },
-    { name: 'astra', imgUrl: '../../../assets/gameImg/astra.png' },
-    { name: 'harbor', imgUrl: '../../../assets/gameImg/harbor.png' },
-    { name: 'killjoy', imgUrl: '../../../assets/gameImg/kj.png' },
-    { name: 'phoenix', imgUrl: '../../../assets/gameImg/phoenix.png' },
-    { name: 'sova', imgUrl: '../../../assets/gameImg/sova.png' },
-    { name: 'vyper', imgUrl: '../../../assets/gameImg/vyper.png' },
-    { name: 'vyse', imgUrl: '../../../assets/gameImg/vyse.png' },
-  ];
-  isLoading = false;
-  pjRandom: any = { name: '', imgUrl: '' };
-  nombrepj: any = '';
-  msg: string = '';
-  intentos: number = 5;
-  isButtonDisabled: boolean = false;
-  racha: number = 0;
-
-  constructor() {}  // Inyectar el servicio
+  constructor(private valorantService: ValorantapiService) {}
 
   ionViewWillEnter() {
     console.log('La página está a punto de ser visible');
-    // Aquí puedes agregar cualquier lógica para preparar la página
+    this.loadRacha(); // Cargar la racha guardada al entrar en la página
   }
 
   ngOnInit() {
+    this.loadAgents();
   }
 
-  // Guardar la racha en el Storage
+  // Cargar los agentes desde la API
+  loadAgents() {
+    this.valorantService.showAgents().subscribe(
+      (data) => {
+        this.agents = data.data
+          .filter(agent => agent.isPlayableCharacter && agent.fullPortrait) // Filtrar los agentes válidos
+          .map(agent => ({
+            ...agent,
+            isGuessed: false, // Agregar propiedad para el juego
+          }));
+        console.log(this.agents);
+        this.getNextAgent(); // Obtener el primer agente después de cargar
+      },
+      (error) => {
+        console.error('Error al obtener agentes:', error);
+      }
+    );
+  }
 
+  // Obtener un agente aleatorio
+  getNextAgent() {
+    if (this.agents.length > 0) {
+      const randomIndex = Math.floor(Math.random() * this.agents.length);
+      this.message = '';
+      this.currentAgent = this.agents[randomIndex];
+    } else {
+      this.message = '¡Felicidades! Has adivinado todos los agentes.';
+      this.currentAgent = null;
+    }
+  }
+
+  // Verificar si la respuesta del usuario es correcta
+  checkGuess() {
+    if (this.userGuess.toLowerCase() === this.currentAgent.displayName.toLowerCase()) {
+      this.message = '¡Correcto!';
+      this.currentAgent.isGuessed = true;
+      this.increaseRacha(); // Aumentar la racha
+      setTimeout(() => {
+        this.agents = this.agents.filter(agent => agent !== this.currentAgent);
+        this.userGuess = '';
+        this.getNextAgent();
+      }, 3000);
+    } else {
+      this.message = 'Incorrecto. Intenta de nuevo.';
+    }
+  }
+
+  // Aumentar la racha y guardarla en localStorage
+  increaseRacha() {
+    this.racha += 1;  // Aumentar la racha
+    localStorage.setItem('racha', this.racha.toString()); // Guardar la racha en localStorage
+  }
+
+  // Cargar la racha desde localStorage
+  loadRacha() {
+    const savedRacha = localStorage.getItem('racha');
+    if (savedRacha) {
+      this.racha = parseInt(savedRacha, 10); // Recuperar la racha guardada
+    }
+  }
 }

@@ -39,11 +39,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/forgot-account/forgot-account.module').then( m => m.ForgotAccountPageModule)
   },
   {
-    path: 'mapas',
-    loadChildren: () => import('./pages/aplicacion/mapas/mapas.module').then( m => m.MapasPageModule),
-    canActivate: [authGuard]
-  },
-  {
     path: 'game',
     loadChildren: () => import('./pages/aplicacion/game/game.module').then( m => m.GamePageModule),
     canActivate: [authGuard]

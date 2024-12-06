@@ -8,15 +8,20 @@ import { LoadingController, ToastController } from '@ionic/angular';
 })
 export class UtilsService {
 
+
   loadingCtrl = inject(LoadingController);
   toastCtrl = inject(ToastController);
   router = inject(Router);
+
+  reloadPage() {
+    window.location.reload();
+  }
 
   loading(){
     return this.loadingCtrl.create({spinner: 'crescent'})
   }
 
-  loadingPhoto(){
+  loadingUserName(){
     return this.loadingCtrl.create({spinner: 'crescent', duration: 3000})
   }
 

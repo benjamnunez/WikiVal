@@ -5,7 +5,7 @@
 
 
 
-  <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()">
+  <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()" style="margin-bottom: 50px;">
 
     <ion-avatar *ngIf="form.value.image">
       <img [src]="form.value.image" />
@@ -45,10 +45,25 @@
       <div *ngIf="form.controls.description.errors?.['minlenght']">La Descripcion debe tener minimo 4 Caracteres</div>
     </div>
 
-    <ion-button  mode="ios" class="ion-margin" type="submit" >
+    <ion-button  mode="ios" (click)="recargarPagina()" class="ion-margin" type="submit" >
       Agregar Lineup
       <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
     </ion-button>
 
   </form>
+
+  <ion-card *ngFor="let l of lineups">
+    <ion-card-header>
+      <ion-card-title>{{l.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-avatar>
+        <img [src]="l.image" />
+      </ion-avatar>
+    </ion-card-content>
+    <ion-card-subtitle style="margin-bottom: 10px;">{{l.description}}</ion-card-subtitle>
+    <ion-button class="button" expand="block"  shape="round">
+      Borrar lineup
+    </ion-button>
+  </ion-card>
 </ion-content>

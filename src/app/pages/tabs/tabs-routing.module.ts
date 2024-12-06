@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () =>import('../auth/perfil/perfil.module').then(m=>m.PerfilPageModule)
       },
       {
-        path:'mapas',
-        loadChildren: () =>import('../aplicacion/mapas/mapas.module').then(m=>m.MapasPageModule)
+        path:'game',
+        loadChildren: () =>import('../aplicacion/game/game.module').then(m=>m.GamePageModule)
       },
       {
         path:'',

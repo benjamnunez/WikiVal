@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ValorantapiService } from 'src/app/services/valorantapi.service';
-import { WeaponSkinsModalComponent } from '../weapon-skins-modal/weapon-skins-modal.component';
+import { WeaponSkinsModalComponent } from '../../../shared/components/weapon-skins-modal/weapon-skins-modal.component';
 
 
 @Component({

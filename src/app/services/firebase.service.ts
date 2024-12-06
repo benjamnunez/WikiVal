@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail} from "firebase/auth";
 import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc, addDoc, collection } from '@angular/fire/firestore';
+import { getFirestore, setDoc, doc, getDoc, addDoc, collection,collectionData,query } from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { getStorage, uploadString, ref, getDownloadURL } from "firebase/storage";
@@ -36,6 +36,10 @@ updateUser(displayName: string){
   return updateProfile(getAuth().currentUser,{displayName})
 }
 
+sendEmailRecovery(email: string){
+  return sendPasswordResetEmail(getAuth(), email);
+} 
+
 signOut() {
   getAuth().signOut();
   localStorage.removeItem('user');
@@ -44,6 +48,11 @@ signOut() {
 
 
 //BASE DE DATOS
+
+getCollectionData(path: string, collectionQuery?: any){
+  const ref = collection(getFirestore(), path);
+  return collectionData(query(ref,collectionQuery),{idField: 'id'})
+}
 //setear documento
 setDocument(path: string, data: any) {
   return setDoc(doc(getFirestore(), path), data);

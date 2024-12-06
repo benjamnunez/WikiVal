@@ -1,19 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="tittle">
-      WikiVal
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header   title="Perfil"></app-header>
 
 <ion-content [fullscreen]="true">
+
+
+
   <ion-card>
+    <ion-card-header>
+      <ion-card-title>Perfil</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      
       <ion-avatar *ngIf="form.value.image">
         <img [src]="form.value.image" alt="">
       </ion-avatar>
-
       <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
       <br>
 
@@ -21,24 +19,78 @@
     </ion-card-content>
     <ion-card-subtitle>
       <ion-item class="input_login">
-        <ion-input maxlength="20" label="Usuario" labelPlacement="floating"  ></ion-input>
+        <ion-input maxlength="20" label="Usuario" placeholder="{{ user.name }}" labelPlacement="floating"  ></ion-input>
       </ion-item>
-      <ion-item class="input_login">
-        <ion-input maxlength="15" label="Password" labelPlacement="floating" type="password" ></ion-input>
-      </ion-item>
-      <ion-button  expand="block" fill="clear" shape="round">
+
+      <ion-button  expand="block"  shape="round">
         Guardar
       </ion-button>
-      <ion-button (click)="signOut()" expand="block" fill="clear" shape="round">
-        Cerrar sesión
-      </ion-button>
-      <ion-button (click)="notFound()" expand="block" fill="clear" shape="round">
-        Página no encontrada
-      </ion-button>
-      <ion-button (click)="lineUps()" expand="block" fill="clear" shape="round">
+    </ion-card-subtitle>
+    
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Line ups</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="lineUps()" expand="block" shape="round">
         Line Ups
       </ion-button>
-    </ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Consejos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="d-flex-center">
+        <form [formGroup]="consejoForm" class="auth-form" (ngSubmit)="sendEmail()">
+          
+          <app-custon-input 
+          autocomplete="email"
+          icon="mail-outline"
+          [control]="consejoForm.controls.email"
+          type="email"
+          label="Correo Electronico"
+          name="email"
+          ></app-custon-input>
+          
+          <div class="validators" *ngIf="consejoForm.controls.email.errors && consejoForm.controls.email.touched">
+            <div *ngIf="consejoForm.controls.email.errors?.['required']">El correo es Requerido</div>
+            <div *ngIf="consejoForm.controls.email.errors?.['email']">Ingrese un correo valido</div>
+          </div>
+          <ion-button class="button" (click)="sendEmail()" expand="block" fill="clear" shape="round">
+            Enviar Correo
+          </ion-button>
+          <ion-button class="button" (click)="generarConsejoRandom()" expand="block" fill="clear" shape="round">
+            Actualizar Consejo
+          </ion-button>
+        </form>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Página 404</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="notFound()" expand="block"  shape="round">
+        Página 404
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Cerrar Sesion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="signOut()" expand="block"  shape="round">
+        Cerrar sesión
+      </ion-button>
+    </ion-card-content>
   </ion-card>
   
 </ion-content>
